@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{05F70415-8E13-4A69-963F-7BFAE4791615}</ProjectGuid>
+    <ProjectGuid>{1B7A7048-A27C-480D-9A50-854A6313A7E2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Exhibition.WPF.View</RootNamespace>
-    <AssemblyName>Exhibition.WPF.View</AssemblyName>
+    <RootNamespace>Exhibition</RootNamespace>
+    <AssemblyName>Exhibition</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -44,6 +44,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -80,8 +82,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\ViewModelPrintSettingStorage.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -89,8 +90,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrastructure\RelayCommand.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="BindingProxy.cs" />
+    <Compile Include="BoolToVisibilityConverter.cs" />
+    <Compile Include="Model\DesctopSetting.cs" />
+    <Compile Include="Model\Col1.cs" />
+    <Compile Include="Model\DisplaySettingContext.cs" />
+    <Compile Include="Model\DisplaySettingModel\ColSet.cs" />
+    <Compile Include="Model\DisplaySettingModel\ColStor.cs" />
+    <Compile Include="Model\DisplaySettingModel\DeskSet.cs" />
+    <Compile Include="Model\DisplaySettingModel\DeskSetContext.cs" />
+    <Compile Include="Phone.cs" />
+    <Compile Include="ViewModel\DesctopDisplaySettingStorage.cs" />
+    <Compile Include="ViewModel\DispSet.cs" />
+    <Compile Include="ViewModel\SettingData\DeskSettSor.cs" />
+    <Compile Include="ViewModel\SettingData\VMDeskSet.cs" />
+    <Compile Include="ViewModel\ViewModelPrintSettingStorage.cs" />
+    <Compile Include="ViewModel\ViewModelStorage.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -120,10 +136,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Exhibition.Model\Exhibition.Model.csproj">
+      <Project>{a054db8a-ea90-4f65-ab56-e1ec8bba45dd}</Project>
+      <Name>Exhibition.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Exhibition.ViewModel\Exhibition.ViewModel.csproj">
       <Project>{d91af856-0e14-43f0-b472-315db942dcc7}</Project>
       <Name>Exhibition.ViewModel</Name>

@@ -50,6 +50,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ViewModelDesctopSetting.cs" />
+    <Compile Include="ViewModels\ViewModelPrintSettingStorage.cs" />
+    <Compile Include="ViewModels\ViewModelSettingStorage.cs" />
     <Compile Include="ViewModels\ViewModelStorage.cs" />
   </ItemGroup>
   <ItemGroup>

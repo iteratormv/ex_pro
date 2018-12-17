@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A054DB8A-EA90-4F65-AB56-E1EC8BBA45DD}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Exhibition.Model</RootNamespace>
-    <AssemblyName>Exhibition.Model</AssemblyName>
+    <ProjectGuid>{2C6A69C1-C359-4B92-80D7-FA50A610F3AC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleApp1</RootNamespace>
+    <AssemblyName>ConsoleApp1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,8 +42,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,37 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cities.cs" />
-    <Compile Include="Companies.cs" />
-    <Compile Include="C__MigrationHistory.cs" />
-    <Compile Include="Descriptions.cs" />
-    <Compile Include="ExhibitionVisitors.cs" />
-    <Compile Include="Exhibits.cs" />
-    <Compile Include="ex_mod.cs" />
-    <Compile Include="Positions.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Raports.cs" />
-    <Compile Include="SettingModels\DesctopSetting.cs" />
-    <Compile Include="SettingModels\PrintSetting.cs" />
-    <Compile Include="SettingModels\PrintTemplateSetting.cs" />
-    <Compile Include="stor.cs" />
-    <Compile Include="VisitorModels\AddComboField1.cs" />
-    <Compile Include="VisitorModels\AddComboField2.cs" />
-    <Compile Include="VisitorModels\AddComboField3.cs" />
-    <Compile Include="VisitorModels\AddComboField4.cs" />
-    <Compile Include="VisitorModels\AddComboField5.cs" />
-    <Compile Include="VisitorModels\Description.cs" />
-    <Compile Include="VisitorModels\ExhibitionVisitorPro.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CF_SettingModel\" />
-    <Folder Include="CF_VisitorModel\" />
-    <Folder Include="DBF_SettingModel\" />
-    <Folder Include="DBF_VisistorModel\" />
+    <ProjectReference Include="..\Exhibition\Exhibition.csproj">
+      <Project>{1B7A7048-A27C-480D-9A50-854A6313A7E2}</Project>
+      <Name>Exhibition</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

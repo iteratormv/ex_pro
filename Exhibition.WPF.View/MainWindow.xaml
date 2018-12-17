@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Exhibition.WPF.View"
+	    xmlns:vms="clr-namespace:Exhibition.ViewModel.ViewModels"
 		xmlns:vm="clr-namespace:Exhibition.ViewModel.ViewModels;assembly=Exhibition.ViewModel"
-        xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Exhibition.WPF.View.MainWindow"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+	    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	    x:Class="Exhibition.WPF.View.MainWindow"
         mc:Ignorable="d"
         Title="Выставка" VerticalAlignment="Center" HorizontalAlignment="Center" WindowState="Maximized">
 	<Window.ContextMenu>
@@ -17,6 +20,7 @@
 	<Window.Resources>
 		<vm:ViewModelStorage x:Key="collection" />
 	</Window.Resources>
+
 	<Grid>
 		<TabControl x:Name="tabControl" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
 			<TabItem Header="Главная">
