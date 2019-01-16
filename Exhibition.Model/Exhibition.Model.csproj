@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A054DB8A-EA90-4F65-AB56-E1EC8BBA45DD}</ProjectGuid>
+    <ProjectGuid>{9DB060E0-208F-40C8-BDCF-7AEFA6BB3CA1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Exhibition.Model</RootNamespace>
@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,17 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,37 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cities.cs" />
-    <Compile Include="Companies.cs" />
-    <Compile Include="C__MigrationHistory.cs" />
-    <Compile Include="Descriptions.cs" />
-    <Compile Include="ExhibitionVisitors.cs" />
-    <Compile Include="Exhibits.cs" />
-    <Compile Include="ex_mod.cs" />
-    <Compile Include="Positions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Raports.cs" />
-    <Compile Include="SettingModels\DesctopSetting.cs" />
-    <Compile Include="SettingModels\PrintSetting.cs" />
-    <Compile Include="SettingModels\PrintTemplateSetting.cs" />
-    <Compile Include="stor.cs" />
-    <Compile Include="VisitorModels\AddComboField1.cs" />
-    <Compile Include="VisitorModels\AddComboField2.cs" />
-    <Compile Include="VisitorModels\AddComboField3.cs" />
-    <Compile Include="VisitorModels\AddComboField4.cs" />
-    <Compile Include="VisitorModels\AddComboField5.cs" />
-    <Compile Include="VisitorModels\Description.cs" />
-    <Compile Include="VisitorModels\ExhibitionVisitorPro.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CF_SettingModel\" />
-    <Folder Include="CF_VisitorModel\" />
-    <Folder Include="DBF_SettingModel\" />
-    <Folder Include="DBF_VisistorModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

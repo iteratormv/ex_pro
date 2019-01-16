@@ -1,4 +1,5 @@
-﻿using Exhibition.ViewModel.ViewModels;
+﻿//using Exhibition.ViewModel.ViewModels;
+using Exhibition.ViewModel.VisitorData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +22,27 @@ namespace Exhibition
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		
+        VMDesctop h;
 
 		public MainWindow()
 		{
+            h = new VMDesctop();
 			InitializeComponent();
 		}
 
-        private void TabItem_LayoutUpdated(object sender, EventArgs e)
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void VMDesctop_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(workgrid.ItemsSource).Refresh(); ;
         }
     }
 }

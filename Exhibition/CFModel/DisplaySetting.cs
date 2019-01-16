@@ -6,22 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exhibition.Model.DisplaySettingModel
+namespace Exhibition.CFModel
 {
-	public class DeskSet:INotifyPropertyChanged
-	{
-		int id { get; set; }
-		string name { get; set; }
-		bool isselected { get; set; }
-
+    public class DisplaySetting : INotifyPropertyChanged
+    {
+        int id;
+        string name;
+        bool isSelected;
 
         public int Id { get { return id; } set { id = value; OnPropertyChanged(nameof(Id)); } }
         public string Name { get { return name; } set { name = value; OnPropertyChanged(nameof(Name)); } }
-        public bool isSelected { get { return isselected; } set { isselected = value; OnPropertyChanged(nameof(isSelected)); } }
+        public bool IsSelected { get { return isSelected; } set { isSelected = value; OnPropertyChanged(nameof(IsSelected)); } }
 
-
-        public virtual List<ColStor> ColStors { get; set; }
-
+        public virtual List<DSCollumnSetting> DSCollumnSettings { get; set; }
 
         private void OnPropertyChanged(string propertyName)
         {
@@ -36,7 +33,6 @@ namespace Exhibition.Model.DisplaySettingModel
             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
                 throw new ArgumentNullException(GetType().Name + " does not contain property: " + propertyName);
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

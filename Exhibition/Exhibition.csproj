@@ -41,11 +41,22 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Expression.Interaction.3.0.40218.0\lib\net46\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Design.Interaction, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Expression.Interaction.3.0.40218.0\lib\net46\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -92,20 +103,30 @@
     </Compile>
     <Compile Include="BindingProxy.cs" />
     <Compile Include="BoolToVisibilityConverter.cs" />
-    <Compile Include="Model\DesctopSetting.cs" />
-    <Compile Include="Model\Col1.cs" />
-    <Compile Include="Model\DisplaySettingContext.cs" />
+    <Compile Include="CFModel\CFExhibitionContext.cs" />
+    <Compile Include="CFModel\DisplaySetting.cs" />
+    <Compile Include="CFModel\DSCollumnSetting.cs" />
+    <Compile Include="CFModel\Visistior.cs" />
+    <Compile Include="ControlItemDoubleClick.cs" />
     <Compile Include="Model\DisplaySettingModel\ColSet.cs" />
     <Compile Include="Model\DisplaySettingModel\ColStor.cs" />
     <Compile Include="Model\DisplaySettingModel\DeskSet.cs" />
     <Compile Include="Model\DisplaySettingModel\DeskSetContext.cs" />
-    <Compile Include="Phone.cs" />
-    <Compile Include="ViewModel\DesctopDisplaySettingStorage.cs" />
-    <Compile Include="ViewModel\DispSet.cs" />
-    <Compile Include="ViewModel\SettingData\DeskSettSor.cs" />
+    <Compile Include="Model\Repository\VisitorStorage.cs" />
+    <Compile Include="Model\VisitorDataModel\City.cs" />
+    <Compile Include="Model\VisitorDataModel\Company.cs" />
+    <Compile Include="Model\VisitorDataModel\Description.cs" />
+    <Compile Include="Model\VisitorDataModel\Exhibit.cs" />
+    <Compile Include="Model\VisitorDataModel\ExhibitionVisitor.cs" />
+    <Compile Include="Model\VisitorDataModel\ExVizContext.cs" />
+    <Compile Include="Model\VisitorDataModel\Position.cs" />
+    <Compile Include="Model\VisitorDataModel\Raport.cs" />
+    <Compile Include="Repository\CFExRepository.cs" />
+    <Compile Include="Repository\ExelData.cs" />
+    <Compile Include="ViewModel\Infrostructure\RelayCommand.cs" />
+    <Compile Include="Model\Repository\DeskSettSor.cs" />
     <Compile Include="ViewModel\SettingData\VMDeskSet.cs" />
-    <Compile Include="ViewModel\ViewModelPrintSettingStorage.cs" />
-    <Compile Include="ViewModel\ViewModelStorage.cs" />
+    <Compile Include="ViewModel\VisitorData\VMDesctop.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -141,15 +162,5 @@
     </None>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\Exhibition.Model\Exhibition.Model.csproj">
-      <Project>{a054db8a-ea90-4f65-ab56-e1ec8bba45dd}</Project>
-      <Name>Exhibition.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Exhibition.ViewModel\Exhibition.ViewModel.csproj">
-      <Project>{d91af856-0e14-43f0-b472-315db942dcc7}</Project>
-      <Name>Exhibition.ViewModel</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

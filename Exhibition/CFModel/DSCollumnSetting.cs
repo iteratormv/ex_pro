@@ -6,21 +6,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exhibition.Model.DisplaySettingModel
+namespace Exhibition.CFModel
 {
-	public class DeskSet:INotifyPropertyChanged
-	{
-		int id { get; set; }
-		string name { get; set; }
-		bool isselected { get; set; }
-
+    public class DSCollumnSetting : INotifyPropertyChanged
+    {
+        int id;
+        string name;
+        string alias;
+        string visible;
+        int width;
+        bool isSelected;
+        int displaySettingId;
 
         public int Id { get { return id; } set { id = value; OnPropertyChanged(nameof(Id)); } }
         public string Name { get { return name; } set { name = value; OnPropertyChanged(nameof(Name)); } }
-        public bool isSelected { get { return isselected; } set { isselected = value; OnPropertyChanged(nameof(isSelected)); } }
+        public string Alias { get { return alias; } set { alias = value; OnPropertyChanged(nameof(Alias)); } }
+        public string Visible { get { return visible; } set { visible = value; OnPropertyChanged(nameof(Visible)); } }
+        public int Width { get { return width; } set { width = value; OnPropertyChanged(nameof(Width)); } }
+        public bool IsSelected { get { return isSelected; } set { isSelected = value; OnPropertyChanged(nameof(IsSelected)); } }
 
-
-        public virtual List<ColStor> ColStors { get; set; }
+        public int DisplaySettingId { get { return displaySettingId; } set { displaySettingId = value; OnPropertyChanged(nameof(DisplaySettingId)); } }
+        public virtual DisplaySetting DisplaySetting { get; set; }
 
 
         private void OnPropertyChanged(string propertyName)
@@ -36,7 +42,6 @@ namespace Exhibition.Model.DisplaySettingModel
             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
                 throw new ArgumentNullException(GetType().Name + " does not contain property: " + propertyName);
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

@@ -6,13 +6,13 @@
 
 	public class DeskSetContext : DbContext
 	{
-		// Контекст настроен для использования строки подключения "DeskSetContext" из файла конфигурации  
-		// приложения (App.config или Web.config). По умолчанию эта строка подключения указывает на базу данных 
-		// "Exhibition.Model.DisplaySettingModel.DeskSetContext" в экземпляре LocalDb. 
-		// 
-		// Если требуется выбрать другую базу данных или поставщик базы данных, измените строку подключения "DeskSetContext" 
-		// в файле конфигурации приложения.
-		public DeskSetContext()
+        // Контекст настроен для использования строки подключения "DeskSetContext" из файла конфигурации  
+        // приложения (App.config или Web.config). По умолчанию эта строка подключения указывает на базу данных 
+        // "Exhibition.Model.DisplaySettingModel.DeskSetContext" в экземпляре LocalDb. 
+        // 
+        // Если требуется выбрать другую базу данных или поставщик базы данных, измените строку подключения "DeskSetContext" 
+        // в файле конфигурации приложения.
+        public DeskSetContext()
 			: base("name=DeskSetContext")
 		{
 		}

@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Exhibition.WPF.View"
+        xmlns:vmcf ="clr-namespace:Exhibition.ViewModel.CFViewModel;assembly=Exhibition.ViewModel"
 	    xmlns:vms="clr-namespace:Exhibition.ViewModel.ViewModels"
-		xmlns:vm="clr-namespace:Exhibition.ViewModel.ViewModels;assembly=Exhibition.ViewModel"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
 	    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
 	    x:Class="Exhibition.WPF.View.MainWindow"
@@ -17,14 +17,14 @@
 	<Window.Effect>
 		<DropShadowEffect/>
 	</Window.Effect>
-	<Window.Resources>
-		<vm:ViewModelStorage x:Key="collection" />
-	</Window.Resources>
+    <Window.Resources>
+        <vmcf:VMFile x:Key="ex_file"/>
+    </Window.Resources>
 
 	<Grid>
 		<TabControl x:Name="tabControl" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
 			<TabItem Header="Главная">
-				<Grid Background="#FFE5E5E5" DataContext="{StaticResource collection}">
+				<Grid Background="#FFE5E5E5" >
 					<Grid.RowDefinitions>
 						<RowDefinition Height="12*"/>
 						<RowDefinition Height="60*"/>
@@ -35,33 +35,14 @@
 						<TextBox Width="100" TextAlignment="Center" Margin="5" Background="#FFE5E5E5" Foreground="Gray" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Цвет бейджа"/>
 						<TextBox Width="100" TextAlignment="Center" Margin="5" Background="#FFE5E5E5" Foreground="Gray" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="Статус оплаты"/>
 					</StackPanel>
-					<DataGrid x:Name="workgrid" Grid.Row="1" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Path=collection}">
+					<DataGrid x:Name="workgrid" Grid.Row="1" Margin="10" AutoGenerateColumns="False">
 						<DataGrid.Columns >
-							<DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50" Visibility="Hidden"/>
-							<DataGridTextColumn Binding="{Binding FirstName}" Width="75" >
-								<DataGridTextColumn.Header>
-									<TextBlock Text="{Binding ElementName=cob_fn, Path=Text}"/>
-								</DataGridTextColumn.Header>
-							</DataGridTextColumn>
-							<DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="Компания" Binding="{Binding Company}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="Штрихкод" Binding="{Binding Barcode}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП1" Binding="{Binding AddTextField1}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП2" Binding="{Binding AddTextField2}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП3" Binding="{Binding AddTextField3}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП4" Binding="{Binding AddTextField4}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП5" Binding="{Binding AddTextField5}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП6" Binding="{Binding AddTextField6}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП7" Binding="{Binding AddTextField7}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП8" Binding="{Binding AddTextField8}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП9" Binding="{Binding AddTextField9}" Width="75" Visibility="Visible"/>
-							<DataGridTextColumn Header="ТП10" Binding="{Binding AddTextField10}" Width="75" Visibility="Visible"/>
+							
 						</DataGrid.Columns>					
 					</DataGrid>
 				</Grid>
 			</TabItem>
-			<TabItem Header="Файл">
+			<TabItem Header="Файл" DataContext="{StaticResource ex_file}">
 				<Grid Background="#FFE5E5E5">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="200*"/>
@@ -69,7 +50,7 @@
 					</Grid.ColumnDefinitions>
 					<StackPanel>
 						<Label Margin="10" Content="Status"/>
-						<Button Margin="10" Content="Загрузить данные из файла"/>
+                        <Button Name="load_file_button" Margin="10" Content="Загрузить данные из файла" Command="{Binding Path=AddDataFromFileToDatabase}"/>
 						<Button Margin="10" Content="Удалить данные файла"/>
 						<Button Margin="10" Content="Выгрузить данные в файл Exel"/>
 					</StackPanel>
